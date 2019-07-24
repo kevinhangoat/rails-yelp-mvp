@@ -1,0 +1,14 @@
+<img src="https://s3-media2.fl.yelpcdn.com/assets/srv0/styleguide/9e6286e52e33/assets/img/brand_guidelines/dont_switch.png" alt="">
+<div>
+
+</div>
+<h2><%= @restaurant[:name] %></h2>
+<p>Address: <%= @restaurant[:address] %></p>
+<p>Telephone: <%= @restaurant[:phone_number] %></p>
+<%= link_to "Write a review",new_restaurant_review_path(@restaurant)  %>
+<h3>Reviews:</h3>
+<ul>
+  <% @restaurant.reviews.each do |review| %>
+    <li><%= review[:content]%> <%= review[:rating]%></li>
+  <% end %>
+</ul>

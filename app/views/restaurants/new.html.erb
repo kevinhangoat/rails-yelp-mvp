@@ -1,0 +1,33 @@
+<%= simple_form_for (@restaurant) do |f| %>
+  <% if @restaurant.errors.any? %>
+    <div class="errors-container">
+      <ul>
+        <% @restaurant.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div>
+    <%= f.label :name  %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div>
+    <%= f.label :address  %>
+    <%= f.text_field :address %>
+  </div>
+
+  <div>
+    <%= f.label :phone_number%>
+    <%= f.text_field :phone_number %>
+  </div>
+
+  <div>
+    <%= f.input :category,collection: ['chinese', 'italian', 'japanese', 'french', 'belgian'] %>
+
+  </div>
+
+  <%= f.submit "add a restaurant"  %>
+<% end %>
+
